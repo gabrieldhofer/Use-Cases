@@ -1,0 +1,126 @@
+\documentclass{article}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+\usepackage[margin=1.5in]{geometry}
+\setlength{\parskip}{1em}
+\usepackage{hyperref}
+
+\title{Use Case 2}
+\author{Gabriel D Hofer}
+\date\today
+
+\begin{document}
+\maketitle
+%-------------------------------
+%	ASSIGNMENT
+%-------------------------------
+
+\subsection*{Introduction}
+The spark-shell was used to complete the following tasks. 
+
+\subsection*{Spark Actions \& Transformations}
+
+Load the matches.csv and deliveries.csv into rdd and rdd2, respectively.
+\lstinputlisting[language=Scala]{code2/zero.m}
+
+1. Find the number of matches that took place in Hyderabad.
+\lstinputlisting[language=Scala]{code2/one.m}
+
+2. Find the number matches that Sunrisers won in Hyderabad City.
+\lstinputlisting[language=Scala]{code2/two.m}
+\newpage
+
+3. Find the number of matches Sunrisers won in each season.
+% https://stackoverflow.com/questions/44576155/iterating-over-compactbuffer-in-an-rdd
+\lstinputlisting[language=Scala]{code2/three.m}
+
+4. In which season did Yuvraj Singh has been awarded maximum Player of the match title.
+\lstinputlisting[language=Scala]{code2/four.m}
+
+5. Which venue hosted maximum matches.
+\lstinputlisting[language=Scala]{code2/five.m}
+
+6. Find the average win by runs in Eden Gardens in Season 2017.
+\lstinputlisting[language=Scala]{code2/six.m}
+\newpage
+
+7. Find out the percentage of each dismissal over all seasons.
+% https://stackoverflow.com/questions/37398673/add-column-to-rdd-spark-1-2-1
+\lstinputlisting[language=Scala]{code2/seven.m}
+Output: 
+\lstinputlisting[language=Scala]{code2/seven_output.m}
+
+\newpage
+8. Which stadium is best suited to bat first.
+\lstinputlisting[language=Scala]{code2/eight.m}
+
+% 9. Which stadium is best suited to bowl first.
+
+%-----------------------------------------------------------------------------------------
+\subsection*{Checking our answers with the DataFrame API}
+This section completes the tasks from the previous section again, except this time 
+using the DataFrame API. The purpose of this is to double-check the answers from the 
+previous section.
+
+Load the matches.csv and deliveries.csv into dataframes df and df2, respectively.
+\lstinputlisting[language=Scala]{code/zero.m}
+
+1. Find the number of matches that took place in Hyderabad.
+\lstinputlisting[language=Scala]{code/one.m}
+
+2. Find the number matches that Sunrisers won in Hyderabad City.
+\lstinputlisting[language=Scala]{code/two.m}
+\newpage
+
+3. Find the number of matches Sunrisers won in each season.
+\lstinputlisting[language=Scala]{code/three.m}
+
+4. In which season did Yuvraj Singh has been awarded maximum Player of the match title.
+\lstinputlisting[language=Scala]{code/four.m}
+
+5. Which venue hosted maximum matches.
+\lstinputlisting[language=Scala]{code/five.m}
+\newpage
+
+6. Find the average win by runs in Eden Gardens in Season 2017.
+\lstinputlisting[language=Scala]{code/six.m}
+
+7. Find out the percentage of each dismissal over all seasons.
+% https://stackoverflow.com/questions/41765739/count-the-number-of-non-null-values-in-a-spark-dataframe
+\lstinputlisting[language=Scala]{code/seven.m}
+
+8. Which stadium is best suited to bat first.
+\lstinputlisting[language=Scala]{code/eight.m}
+
+% 9. Which stadium is best suited to bowl first.
+
+
+
+
+\end{document}

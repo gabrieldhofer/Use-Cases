@@ -1,0 +1,84 @@
+\documentclass{article}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+\usepackage[margin=1.0in]{geometry}
+\setlength{\parskip}{1em}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+
+\title{Kafka Usecase}
+\author{Gabriel D Hofer}
+\date\today
+
+\begin{document}
+\maketitle
+%-------------------------------
+%	ASSIGNMENT
+%-------------------------------
+ 
+Using single-node multi-broker setup , do the following: 
+Create a topic called “logs” with 3 partitions and a replication factor of 3. 
+\lstinputlisting[language=Bash]{code/one.sh}
+
+Describe the topic to understand in broker are the leader and in-sync replicas of your topic. 
+\lstinputlisting[language=Bash]{code/two.sh}
+
+Produce some log messages to the “logs” topic as key-value pairs where log-level is the key and log message is the value. Ex: A message can look like “WARN: Message not properly formatted”. Use Kafka console producer for doing this. 
+\lstinputlisting[language=Bash]{code/producer.sh}
+
+%%%%--------------------------------------------------------
+%%%% Consumer Groups Tutorial
+%%%% https://www.javatpoint.com/kafka-consumer-group-cli
+
+Launch three instances of Kafka Console Consumers as a consumer group and demonstrate how messages are distributed across three partitions and how each consumer in the group is consuming from each of the three partitions.  
+
+\noindent Consumer instance one:
+\lstinputlisting[language=Bash]{code/consumer-instance-one.sh}
+Consumer instance two:
+\lstinputlisting[language=Bash]{code/consumer-instance-two.sh}
+Consumer instance three:
+\lstinputlisting[language=Bash]{code/consumer-instance-three.sh}
+ 
+\newpage
+%%%%--------------------------------------------------------
+%%%% Kafka Producer API in Python (kafka-python)
+%%%% https://kafka-python.readthedocs.io/en/master/apidoc/KafkaProducer.html
+%%%% https://towardsdatascience.com/kafka-python-explained-in-10-lines-of-code-800e3e07dad1
+
+Write a simple Python client application using Kafka Producer API to producer messages to the “logs” topic.  Using Fire-and-Forget approach for fastest message delivery. Send only “ERROR” messages. 
+\lstinputlisting[language=Bash]{code/producer-client.py}
+ 
+%%%%--------------------------------------------------------
+%%%% 
+Write a simple Python client application using Kafka Consumer API to consume the data from the “logs” topic. Print the log messages on the Console. Turn-off auto-commit and explicit commit the messages from the application.  
+\lstinputlisting[language=Bash]{code/consumer-client.py}
+
+
+\end{document}

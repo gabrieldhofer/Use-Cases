@@ -1,0 +1,88 @@
+\documentclass{article}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+\usepackage[margin=1.5in]{geometry}
+\setlength{\parskip}{1em}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+
+
+\title{Use Case 4}
+\author{Gabriel D Hofer}
+\date\today
+
+\begin{document}
+\maketitle
+%-------------------------------
+%	ASSIGNMENT
+%-------------------------------
+
+
+
+%\lstinputlisting[language=Scala]{code/one.m}
+
+Apply data frames on Walmart dataset and solve the below problems:
+
+
+1. Create a new dataframe with a column called HV Ratio that is the ratio of the High Price versus volume of stock traded for a day.
+\lstinputlisting[language=Scala]{code/zero.m}
+\lstinputlisting[language=Scala]{code/one.m}
+
+2. What day had the Peak High in Price?
+\lstinputlisting[language=Scala]{code/two.m}
+
+3. What is the mean of the Close column?
+\lstinputlisting[language=Scala]{code/three.m}
+
+4. What is the max and min of the Volume column?
+\lstinputlisting[language=Scala]{code/four.m}
+\newpage
+
+5. How many days was the Close lower than 60 dollars?
+\lstinputlisting[language=Scala]{code/five.m}
+
+6. What percentage of the time was the High greater than 80 dollars ?
+\lstinputlisting[language=Scala]{code/six.m}
+
+7. What is the Pearson correlation between High and Volume?
+% \lstinputlisting[language=Scala]{code/seven.m}
+\centering
+\includegraphics[scale=0.5]{/home/gabriel/Pictures/pearson_correlation.jpeg}
+\lstinputlisting[language=Scala]{code/seven.m}
+
+8. What is the max High per year?
+\lstinputlisting[language=Scala]{code/eight.m}
+
+9. What is the average Close for each Calendar Month?
+\lstinputlisting[language=Scala]{code/nine.m}
+
+
+
+\end{document}

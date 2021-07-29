@@ -1,0 +1,141 @@
+Welcome to Scala 2.11.12 (OpenJDK 64-Bit Server VM, Java 11.0.11).
+Type in expressions for evaluation. Or try :help.
+
+scala>      | join(df, df2("match_id") === df("id"), "left").
+     |      | groupBy("season").
+     |      | agg((sum(when($"player_dismissed".isNull,0).otherwise(1))/count("*")).
+     |      | as("player_dismissed : fraction null")).
+     |      | show()
+<console>:12: error: not found: value join
+ join(df, df2("match_id") === df("id"), "left").
+ ^
+<console>:12: error: not found: value df
+ join(df, df2("match_id") === df("id"), "left").
+      ^
+<console>:12: error: not found: value df2
+ join(df, df2("match_id") === df("id"), "left").
+          ^
+<console>:12: error: not found: value df
+ join(df, df2("match_id") === df("id"), "left").
+                              ^
+<console>:14: error: not found: value sum
+ agg((sum(when($"player_dismissed".isNull,0).otherwise(1))/count("*")).
+      ^
+<console>:14: error: not found: value when
+ agg((sum(when($"player_dismissed".isNull,0).otherwise(1))/count("*")).
+          ^
+<console>:14: error: value $ is not a member of StringContext
+ agg((sum(when($"player_dismissed".isNull,0).otherwise(1))/count("*")).
+               ^
+<console>:14: error: not found: value count
+ agg((sum(when($"player_dismissed".isNull,0).otherwise(1))/count("*")).
+                                                           ^
+
+scala> +------+--------------------------------+
+<console>:12: error: not found: value +------+--------------------------------+
+       +------+--------------------------------+
+       ^
+
+scala> |season|player_dismissed : fraction null|
+<console>:1: error: ';' expected but 'null' found.
+|season|player_dismissed : fraction null|
+                                    ^
+
+scala> +------+--------------------------------+
+<console>:12: error: not found: value +------+--------------------------------+
+       +------+--------------------------------+
+       ^
+
+scala> |  2016|             0.04724744608399546|
+<console>:1: error: ';' expected but integer literal found.
+|  2016|             0.04724744608399546|
+   ^
+
+scala> |  2012|              0.0482917768897394|
+<console>:1: error: ';' expected but integer literal found.
+|  2012|              0.0482917768897394|
+   ^
+
+scala> |  2019|               0.047250139586823|
+<console>:1: error: ';' expected but integer literal found.
+|  2019|               0.047250139586823|
+   ^
+
+scala> |  2017|            0.051291299956716205|
+<console>:1: error: ';' expected but integer literal found.
+|  2017|            0.051291299956716205|
+   ^
+
+scala> |  2014|            0.047132867132867136|
+<console>:1: error: ';' expected but integer literal found.
+|  2014|            0.047132867132867136|
+   ^
+
+scala> |  2013|             0.05017329592341971|
+<console>:1: error: ';' expected but integer literal found.
+|  2013|             0.05017329592341971|
+   ^
+
+scala> |  2009|            0.051300896663236804|
+<console>:1: error: ';' expected but integer literal found.
+|  2009|            0.051300896663236804|
+   ^
+
+scala> |  2018|            0.050314905528341496|
+<console>:1: error: ';' expected but integer literal found.
+|  2018|            0.050314905528341496|
+   ^
+
+scala> |  2011|             0.04778698642214777|
+<console>:1: error: ';' expected but integer literal found.
+|  2011|             0.04778698642214777|
+   ^
+
+scala> |  2008|             0.05115279116316999|
+<console>:1: error: ';' expected but integer literal found.
+|  2008|             0.05115279116316999|
+   ^
+
+scala> |  2015|             0.05061529446234984|
+<console>:1: error: ';' expected but integer literal found.
+|  2015|             0.05061529446234984|
+   ^
+
+scala> |  2010|             0.05000689750310388|
+<console>:1: error: ';' expected but integer literal found.
+|  2010|             0.05000689750310388|
+   ^
+
+scala> +------+--------------------------------+
+<console>:12: error: not found: value +------+--------------------------------+
+       +------+--------------------------------+
+       ^
+
+scala> 
+
+scala> scala> df2.
+
+// Detected repl transcript. Paste more, or ctrl-D to finish.
+
+     | join(df, df2("match_id") === df("id"), "left").
+     | groupBy("season").
+     | agg((sum(when($"player_dismissed".isNull,0).otherwise(1))/count("*")).
+     | as("player_dismissed : fraction null")).
+     | show()
++------+--------------------------------+
+|season|player_dismissed : fraction null|
++------+--------------------------------+
+|  2016|             0.04724744608399546|
+|  2012|              0.0482917768897394|
+|  2019|               0.047250139586823|
+|  2017|            0.051291299956716205|
+|  2014|            0.047132867132867136|
+|  2013|             0.05017329592341971|
+|  2009|            0.051300896663236804|
+|  2018|            0.050314905528341496|
+|  2011|             0.04778698642214777|
+|  2008|             0.05115279116316999|
+|  2015|             0.05061529446234984|
+|  2010|             0.05000689750310388|
++------+--------------------------------+
+
